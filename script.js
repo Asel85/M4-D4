@@ -4,11 +4,10 @@ function getBookCard(){
     .then(function(result){
         return result.json();
     })
-    .then(function(result2){
-        //console.log(result2)
-       containerRow.innerHTML = result2.map((item) => {
-      return   ` <div class='col col-3'> <div class="card mb-4 shadow-sm" id='book_${item.asin}'>
-      <img src='${item.img}' />
+    .then(function(json){
+       containerRow.innerHTML = json.map((item) => {
+      return   ` <div class='col col-3 my-4'> <div class="card mb-4 shadow-sm card_height mt-4" id='book_${item.asin}'>
+      <img src='${item.img}'class="card_img" />
 
       <div class="card-body">
         <p class='font-weight-bold text-truncate book-title'> ${item.title} </p>
